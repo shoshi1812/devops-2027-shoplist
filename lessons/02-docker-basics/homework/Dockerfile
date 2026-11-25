@@ -1,20 +1,20 @@
-# (הערה: מה עושה השורה הזו?)
-FROM python:___-slim
+# (בוחר אימג בסיס בגרסה מוקטנת)
+FROM python:3.11-slim
 
-# (הערה)
+# (יוצר את תקיית העבודה בתוך הקונטיינר)
 WORKDIR /app
 
-# (הערה: למה מעתיקים קודם רק את הקובץ הזה?)
-COPY ___ .
+# (מעתיקים קודם רק את רשימת התלויות, כדי ששינוי בקוד לא יפעיל את ההתקנה מחדש)
+COPY requirements.txt .
 
-# (הערה)
+# (התקנת רשימת התלויות)
 RUN pip install --no-cache-dir --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
 
-# (הערה)
+# הקוד בעצמו
 COPY app.py .
 
-# (הערה)
-EXPOSE ___
+# (מתעד שהשרת מאזין על פורט 8000 (זה לא פותח את הפורט.
+EXPOSE 8000
 
-# (הערה: מה רץ כשה-container עולה?)
-CMD ["python", "___"]
+# (מריץ את השרת כשה-container עולה)
+CMD ["python", "app.py"]
