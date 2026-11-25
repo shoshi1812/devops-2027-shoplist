@@ -1,9 +1,20 @@
-# בוחרים image בסיס של Python בגרסה 3.11 מוקטנת
-???
+# (הערה: מה עושה השורה הזו?)
+FROM python:___-slim
 
-# קובעים את תיקיית העבודה בתוך ה-container
-???
+# (הערה)
+WORKDIR /app
 
-# ??? (את ההערות האלה תכתבי בעצמך)
-???
-...
+# (הערה: למה מעתיקים קודם רק את הקובץ הזה?)
+COPY ___ .
+
+# (הערה)
+RUN pip install --no-cache-dir --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
+
+# (הערה)
+COPY app.py .
+
+# (הערה)
+EXPOSE ___
+
+# (הערה: מה רץ כשה-container עולה?)
+CMD ["python", "___"]
